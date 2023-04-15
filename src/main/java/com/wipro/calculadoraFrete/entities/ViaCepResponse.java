@@ -28,11 +28,11 @@ public class ViaCepResponse {
         this.cep = cep;
     }
 
-    public String getLogradouro() {
+    public String getRua() {
         return logradouro;
     }
 
-    public void setLogradouro(String logradouro) {
+    public void setCidade(String logradouro) {
         this.logradouro = logradouro;
     }
 
@@ -52,7 +52,7 @@ public class ViaCepResponse {
         this.bairro = bairro;
     }
 
-    public String getLocalidade() {
+    public String getCidade() {
         return localidade;
     }
 
@@ -60,11 +60,11 @@ public class ViaCepResponse {
         this.localidade = localidade;
     }
 
-    public String getUf() {
+    public String getEstado() {
         return uf;
     }
 
-    public void setUf(String uf) {
+    public void setEstado(String uf) {
         this.uf = uf;
     }
 }

@@ -1,4 +1,4 @@
-package com.wipro.calculadoraFrete;
+package com.wipro.calculadoraFrete.cucumberSteps;
 
 import com.wipro.calculadoraFrete.entities.EnderecoResponse;
 import com.wipro.calculadoraFrete.entities.ViaCepResponse;
@@ -59,11 +59,11 @@ public class ConsultaEnderecoServiceSteps {
         assertNotNull(viaCepResponse);
         EnderecoResponse enderecoResponse = this.consultaEnderecoToFreteService.getdefinirFreteEndereco(viaCepResponse);
         assertEquals(viaCepResponse.getCep(), enderecoResponse.getCep());
-        assertEquals(viaCepResponse.getLogradouro(), enderecoResponse.getRua());
+        assertEquals(viaCepResponse.getRua(), enderecoResponse.getRua());
         assertEquals(viaCepResponse.getComplemento(), enderecoResponse.getComplemento());
         assertEquals(viaCepResponse.getBairro(), enderecoResponse.getBairro());
-        assertEquals(viaCepResponse.getLocalidade(), enderecoResponse.getCidade());
-        assertEquals(viaCepResponse.getUf(), enderecoResponse.getEstado());
+        assertEquals(viaCepResponse.getCidade(), enderecoResponse.getCidade());
+        assertEquals(viaCepResponse.getEstado(), enderecoResponse.getEstado());
         assertEquals(7.85, enderecoResponse.getFrete(), 0.001);
     }
 

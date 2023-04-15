@@ -57,17 +57,17 @@ public class ConsultaEnderecoToFreteService {
 
     public EnderecoResponse getdefinirFreteEndereco(ViaCepResponse viaCepResponse){
 
-        String estado = viaCepResponse.getUf();
+        String estado = viaCepResponse.getEstado();
         String regiao = regiaoPorEstado.get(estado);
         Double frete = definirValorDoFrete(regiao);
 
         return new EnderecoResponse(
                 viaCepResponse.getCep(),
-                viaCepResponse.getLogradouro(),
+                viaCepResponse.getRua(),
                 viaCepResponse.getComplemento(),
                 viaCepResponse.getBairro(),
-                viaCepResponse.getLocalidade(),
-                viaCepResponse.getUf(),
+                viaCepResponse.getCidade(),
+                viaCepResponse.getEstado(),
                 frete
         );
     }
