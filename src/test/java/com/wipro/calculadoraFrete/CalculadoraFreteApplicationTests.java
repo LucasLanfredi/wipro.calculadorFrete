@@ -2,7 +2,7 @@ package com.wipro.calculadoraFrete;
 
 import com.wipro.calculadoraFrete.entities.EnderecoResponse;
 import com.wipro.calculadoraFrete.entities.ViaCepResponse;
-import com.wipro.calculadoraFrete.services.ConsultaEnderecoService;
+import com.wipro.calculadoraFrete.services.ConsultaEnderecoToFreteService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -12,11 +12,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @SpringBootTest
 class CalculadoraFreteApplicationTests {
 
-	private ConsultaEnderecoService consultaEnderecoService;
+	private ConsultaEnderecoToFreteService consultaEnderecoToFreteService;
 
 	@BeforeEach
 	public void setUp() {
-		consultaEnderecoService = new ConsultaEnderecoService();
+		consultaEnderecoToFreteService = new ConsultaEnderecoToFreteService();
 	}
 
 	@Test
@@ -30,7 +30,7 @@ class CalculadoraFreteApplicationTests {
 		viaCepResponse.setLocalidade("São Paulo");
 		viaCepResponse.setUf("SP");
 //acao
-		EnderecoResponse enderecoResponse = consultaEnderecoService.getdefinirFreteEndereco(viaCepResponse);
+		EnderecoResponse enderecoResponse = consultaEnderecoToFreteService.getdefinirFreteEndereco(viaCepResponse);
 //validacao
 		assertEquals("12345-678", enderecoResponse.getCep());
 		assertEquals("Rua dos Testes", enderecoResponse.getRua());
@@ -43,7 +43,7 @@ class CalculadoraFreteApplicationTests {
 
 	@Test
 	public void testDefinirValorDoFrete() {
-		Double frete = consultaEnderecoService.definirValorDoFrete("Sudeste");
+		Double frete = consultaEnderecoToFreteService.definirValorDoFrete("Sudeste");
 		assertEquals(7.85, frete, 0.001);
 	}
 

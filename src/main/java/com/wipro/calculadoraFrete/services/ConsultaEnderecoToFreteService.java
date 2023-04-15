@@ -8,13 +8,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Service
-public class ConsultaEnderecoService {
+public class ConsultaEnderecoToFreteService {
 
     private Map<String, String> regiaoPorEstado = new HashMap<>();
 
     private Map<String, Double> fretePorRegiao = new HashMap<>();
 
-    public ConsultaEnderecoService() {
+    public ConsultaEnderecoToFreteService() {
         fretePorRegiao.put("Sudeste", 7.85);
         fretePorRegiao.put("Centro-Oeste", 12.50);
         fretePorRegiao.put("Nordeste", 15.98);

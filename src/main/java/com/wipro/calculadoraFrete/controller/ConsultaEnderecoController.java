@@ -4,7 +4,7 @@ import com.wipro.calculadoraFrete.exceptions.CepNotFoundException;
 import com.wipro.calculadoraFrete.entities.EnderecoResponse;
 import com.wipro.calculadoraFrete.entities.ViaCepResponse;
 import com.wipro.calculadoraFrete.services.BuscarCep;
-import com.wipro.calculadoraFrete.services.ConsultaEnderecoService;
+import com.wipro.calculadoraFrete.services.ConsultaEnderecoToFreteService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -25,7 +25,7 @@ import reactor.core.publisher.Mono;
 public class ConsultaEnderecoController {
 
     @Autowired
-    private ConsultaEnderecoService consultaEnderecoService;
+    private ConsultaEnderecoToFreteService consultaEnderecoToFreteService;
 
     @Autowired
     private BuscarCep buscarCep;
@@ -40,7 +40,7 @@ public class ConsultaEnderecoController {
 
         ViaCepResponse viaCepResponse = buscarCep.buscar(request);
 
-        EnderecoResponse enderecoResponse = consultaEnderecoService.getdefinirFreteEndereco(viaCepResponse);//Mandando para o service inserir o valor do frete
+        EnderecoResponse enderecoResponse = consultaEnderecoToFreteService.getdefinirFreteEndereco(viaCepResponse);//Mandando para o service inserir o valor do frete
         return Mono.just(ResponseEntity.ok(enderecoResponse));
     }
 }
