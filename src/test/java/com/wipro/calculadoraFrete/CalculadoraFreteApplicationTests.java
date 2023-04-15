@@ -20,8 +20,8 @@ class CalculadoraFreteApplicationTests {
 	}
 
 	@Test
-	public void testGetEnderecoResponse() {
-		// Criação do objeto ViaCepResponse
+	public void testValorFreteEnderecoResponse() {
+//Cenario
 		ViaCepResponse viaCepResponse = new ViaCepResponse();
 		viaCepResponse.setCep("12345-678");
 		viaCepResponse.setLogradouro("Rua dos Testes");
@@ -29,11 +29,9 @@ class CalculadoraFreteApplicationTests {
 		viaCepResponse.setBairro("Centro");
 		viaCepResponse.setLocalidade("São Paulo");
 		viaCepResponse.setUf("SP");
-
-		// Chamada do método getEnderecoResponse() do serviço
-		EnderecoResponse enderecoResponse = consultaEnderecoService.getEnderecoResponse(viaCepResponse);
-
-		// Verificação dos valores esperados
+//acao
+		EnderecoResponse enderecoResponse = consultaEnderecoService.getdefinirFreteEndereco(viaCepResponse);
+//validacao
 		assertEquals("12345-678", enderecoResponse.getCep());
 		assertEquals("Rua dos Testes", enderecoResponse.getRua());
 		assertEquals("Apto 123", enderecoResponse.getComplemento());
@@ -45,10 +43,7 @@ class CalculadoraFreteApplicationTests {
 
 	@Test
 	public void testDefinirValorDoFrete() {
-		// Chama o método definirValorDoFrete() com a região "Sudeste"
 		Double frete = consultaEnderecoService.definirValorDoFrete("Sudeste");
-
-		// Verificação do valor esperado (foi colocado 0.001 como uma margem de erro para numeros flutuantes do java)
 		assertEquals(7.85, frete, 0.001);
 	}
 

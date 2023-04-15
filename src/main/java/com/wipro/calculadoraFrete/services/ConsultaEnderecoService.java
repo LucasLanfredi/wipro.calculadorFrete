@@ -55,7 +55,7 @@ public class ConsultaEnderecoService {
 
     }
 
-    public EnderecoResponse getEnderecoResponse(ViaCepResponse viaCepResponse){
+    public EnderecoResponse getdefinirFreteEndereco(ViaCepResponse viaCepResponse){
 
         String estado = viaCepResponse.getUf();
         String regiao = regiaoPorEstado.get(estado);
