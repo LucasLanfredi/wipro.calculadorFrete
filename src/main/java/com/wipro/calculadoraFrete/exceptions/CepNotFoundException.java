@@ -1,4 +1,4 @@
-package com.wipro.calculadoraFrete.Exception;
+package com.wipro.calculadoraFrete.exceptions;
 
 public class CepNotFoundException extends RuntimeException {
 

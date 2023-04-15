@@ -1,4 +1,4 @@
-package com.wipro.calculadoraFrete.Exception;
+package com.wipro.calculadoraFrete.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

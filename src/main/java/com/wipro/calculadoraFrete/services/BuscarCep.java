@@ -1,6 +1,6 @@
 package com.wipro.calculadoraFrete.services;
 
-import com.wipro.calculadoraFrete.Exception.CepNotFoundException;
+import com.wipro.calculadoraFrete.exceptions.CepNotFoundException;
 import com.wipro.calculadoraFrete.entities.ViaCepResponse;
 import org.springframework.stereotype.Service;
 
